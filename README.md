@@ -1,2 +1,3 @@
 # Python-programming-exercises-Chinese
-Python-programming-exercises
+
+Python-programming-exercises中文版
