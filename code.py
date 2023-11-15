@@ -981,6 +981,125 @@ Solution
 使用+连接字符串
 解决方案
 """
+
+"""
+Please write a program to print the list after removing delete even numbers in [5,6,77,45,22,12,24].
+
+Hints:
+Use list comprehension to delete a bunch of element from a list.
+
+"""
+"""
+By using list comprehension, please write a program to print the list after removing 
+delete numbers which are divisible by 5 and 7 in [12,24,35,70,88,120,155].
+
+Hints:
+Use list comprehension to delete a bunch of element from a list.
+
+
+定义一个函数，输入一个列表，返回一个新的列表，其中删除掉所有能被 5 和 7 整除的元素。
+使用输入列表调用函数，打印输出列表。  
+"""
+
+
+def comprehension_remove():
+    l = [12, 24, 35, 70, 88, 120, 155]
+    print([x for x in l if x % 5 != 0 and x % 7 != 0])
+
+
+"""
+By using list comprehension, please write a program to print the list after removing
+ the 0th, 2nd, 4th,6th numbers in [12,24,35,70,88,120,155].
+
+Hints:
+Use list comprehension to delete a bunch of element from a list.
+Use enumerate() to get (index, value) tuple.
+
+去除偶数位元素
+"""
+
+
+def remove_even_number():
+    print([x for (i, x) in enumerate([12, 24, 35, 70, 88, 120, 155]) if i % 2 != 0])
+
+
+"""
+By using list comprehension, please write a program generate a 3*5*8 3D array whose each element is 0.
+
+Hints:
+Use list comprehension to make an array. 
+
+生成一个3*5*8的3维列表
+"""
+
+
+def generate_3d_array():
+    print([[[0 for _ in range(8)] for _ in range(5)] for _ in range(3)])
+
+
+"""
+
+By using list comprehension, please write a program to print the list after removing 
+the 0th,4th,5th numbers in [12,24,35,70,88,120,155].
+
+Hints:
+Use list comprehension to delete a bunch of element from a list.
+Use enumerate() to get (index, value) tuple.
+
+首先删除列表中的 0 号元素，然后删除 4 号元素，最后删除 5 号元素。  
+打印删除后的列表
+
+"""
+
+
+def remove_element():
+    l = [12, 24, 35, 70, 88, 120, 155]
+    print(list(enumerate(l)))
+    print([(i, x) for (i, x) in enumerate(l) if i not in (0, 4, 5)])
+
+
+"""
+By using list comprehension, please write a program to print the list after 
+removing the value 24 in [12,24,35,24,88,120,155].
+
+从list删除24
+"""
+
+
+def remove_num():
+    l = [12, 24, 35, 24, 88, 120, 155]
+    # print(l.remove(24))
+    print(l)
+
+
+"""
+With a given list [12,24,35,24,88,120,155,88,120,155], write a program to print this list after removing all duplicate values with original order reserved.
+
+Hints:
+Use set() to store a number of values without duplicate.
+
+去重并保留原始顺序
+"""
+
+
+def sort_set_list(l: list):
+    res = []
+    sets = set()
+    for i in l:
+        if i not in sets:
+            res.append(i)
+            sets.add(i)
+    print(res)
+    return res
+
+
+"""
+Define a class Person and its two child classes: Male and Female. 
+All classes have a method "getGender" which can print "Male" for Male class and "Female" for Female class.
+
+定义 Person 类和其两个子类 Male 和 Female 。
+所有类都有一个名为"getGender"的方法，它可以打印出"Male"（对于 Male 类）和"Female"（对于 Female 类）
+"""
 """
 Please write a program which count and print the numbers of each character in a string input by console.
 Example:
@@ -1007,12 +1126,38 @@ f,1
 """
 
 
+class Person(object):
+    def __init__(self):
+        pass
+
+    def get_gender(self):
+        pass
+
+
+class Male(Person):
+    def __init__(self):
+        super().__init__()
+
+    def get_gender(self):
+        print('Male')
+        return 'Male'
+
+
+class Female(Person):
+    def __init__(self):
+        super().__init__()
+
+    def get_gender(self):
+        print('Female')
+        return 'Female'
+
+
 def get_str_counts(s: str):
     d = {}
     for i in s:
         d[i] = d.get(i, 0) + 1
 
-    print('\n'.join(['%s,%s' % (k, v) for k, v in sorted(d.items(), key=lambda x: x[1],reverse=True)]))
+    print('\n'.join(['%s,%s' % (k, v) for k, v in sorted(d.items(), key=lambda x: x[1], reverse=True)]))
 
 
 """
@@ -1102,4 +1247,15 @@ if __name__ == '__main__':
     # permutations_list([1, 2, 3])
     # get_even_index('H1e2l3akjdhlauda 7q91288-09qwidphal4o5w6o7r8l9d')
     # reverse_str('H1e2l3akjdhlauda 7q91288-09qwidphal4o5w6o7r8l9d')
-    get_str_counts('qwertyuioqwertyuiasdfghjklertyuxcvbnmfghwerty')
+    # get_str_counts('qwertyuioqwertyuiasdfghjklertyuxcvbnmfghwerty')
+    # male = Male()
+    # female = Female()
+    # male.get_gender()
+    # female.get_gender()
+    # sort_set_list([12, 24, 35, 24, 88, 120, 155, 88, 120, 155])
+    # remove_num()
+    # remove_element()
+
+    # generate_3d_array()
+    # remove_even_number()
+    comprehension_remove()
