@@ -1,8 +1,10 @@
 import math
 import re
+import timeit
 from functools import reduce
 from itertools import permutations
 from operator import itemgetter
+from random import shuffle
 
 """
 Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5,
@@ -983,12 +985,59 @@ Solution
 """
 
 """
+Please write a program to print the running time of execution of "1+1" for 100 times.
+
+计算执行“1+1”操作 100 次的运行时间。
+"""
+
+
+def times():
+    print(timeit.Timer('for i in range(100):1+1').timeit())
+
+
+"""
+Please write a program to shuffle and print the list [3,6,7,8].
+
+打乱list
+"""
+
+
+def shuffle_list():
+    l = [3, 6, 7, 8]
+    shuffle(l)
+    print(l)
+
+
+"""
+Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"]
+ and the object is in ["Hockey","Football"].
+
+编写一个程序，生成所有主语为 ["I", "You"]，动词为 ["Play", "Love"]，宾语为 ["Hockey", "Football"] 的句子。
+提示：使用列表索引来获取列表中的元素。
+"""
+
+
+def concatenation_statement():
+    for i in ["I", "You"]:
+        for j in ["Play", "Love"]:
+            for k in ["Hockey", "Football"]:
+                print(i, j, k)
+
+
+"""
 Please write a program to print the list after removing delete even numbers in [5,6,77,45,22,12,24].
 
 Hints:
 Use list comprehension to delete a bunch of element from a list.
 
+去掉所有偶数
 """
+
+
+def del_even_nums():
+    print([x for x in [5, 6, 77, 45, 22, 12, 24] if x % 2 != 0])
+
+
 """
 By using list comprehension, please write a program to print the list after removing 
 delete numbers which are divisible by 5 and 7 in [12,24,35,70,88,120,155].
@@ -1020,7 +1069,7 @@ Use enumerate() to get (index, value) tuple.
 
 
 def remove_even_number():
-    print([x for (i, x) in enumerate([12, 24, 35, 70, 88, 120, 155]) if i % 2 != 0])
+    print([x for (i, x) in enumerate([12, 24, 35, 70, 88, 120, 155]) if i not in (0, 2, 4, 6)])
 
 
 """
@@ -1258,4 +1307,8 @@ if __name__ == '__main__':
 
     # generate_3d_array()
     # remove_even_number()
-    comprehension_remove()
+    # comprehension_remove()
+    # del_even_nums()
+    # concatenation_statement()
+    # shuffle_list()
+    times()
